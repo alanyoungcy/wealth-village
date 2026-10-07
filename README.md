@@ -1,155 +1,238 @@
-# Virtual Wealth Management 3D Dashboard
+# 🏰 Virtual Wealth Village
 
-A 3D interactive virtual wealth management dashboard with walking avatars representing your wealth management team. Built with React, Three.js, and FastAPI.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![React](https://img.shields.io/badge/React-18.3-blue.svg)](https://reactjs.org/)
+[![Three.js](https://img.shields.io/badge/Three.js-Latest-black.svg)](https://threejs.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.142-green.svg)](https://fastapi.tiangolo.com/)
 
-## Features
+An immersive **3D interactive financial dashboard** built as a low-poly village world. Explore a beautiful village with walking NPCs, animated animals, and clickable buildings that reveal detailed financial insights.
 
-- **3D Interactive Environment**: Isometric office layout with 4 zones
-- **Walking Avatars**: Animated wealth management team members patrolling their zones
-- **Real-time Data**: Live portfolio, research, risk, and tax data
-- **Responsive UI**: Beautiful dashboard overlay with real-time metrics
-- **4 Management Zones**:
-  - 📊 **Portfolio** (Top/North): Track performance and asset allocation
-  - 🔍 **Research** (Left/West): Asset research and market recommendations
-  - ⚠️ **Risk** (Bottom/South): Risk metrics and volatility monitoring
-  - 💰 **Tax** (Right/East): Tax planning and optimization
+## ✨ Features
 
-## Tech Stack
+### 🚶 Living Village
+- **6 Walking NPCs** - Financial team members patrol the village with realistic animations
+- **14 Animated Animals** - Cows, sheep, and chickens graze and walk around
+- **140+ Trees** - Dense forests with seasonal changes (summer ↔ autumn)
+- **Organic Natural Lake** - Beautiful water with reflections, boats, and lily pads
 
-### Frontend
-- React + Vite
-- Three.js + React Three Fiber
-- @react-three/drei for 3D helpers
+### 🏢 Interactive Buildings
+- **Click any building** to view detailed financial dashboards
+- **6 Financial Services**:
+  - 🏦 Wealth Bank (Portfolio Management)
+  - 📊 Trading Post (Market Research)
+  - 💰 Treasury (Asset Management)
+  - 📜 Tax Office (Tax Planning)
+  - 💼 Investments (Advisory)
+  - ⚠️ Risk Management
 
-### Backend
-- Python FastAPI
-- Managed by `uv`
-- CORS enabled for local development
+### 🎨 Advanced Graphics
+- **Post-processing effects** - Bloom and SSAO
+- **Reflective water** - Metallic surface with wave animations
+- **Enhanced materials** - Realistic wood, metal, and glass
+- **Dynamic lighting** - Multiple light sources with shadows
+- **Season Toggle** - Instant transformation between summer and autumn
 
-## Getting Started
+### 📊 Real-time Data
+- Live portfolio values and performance
+- Market sentiment analysis
+- Risk metrics and VaR calculations
+- Tax optimization insights
+- Updated every 3-5 seconds
+
+## 🎮 Demo
+
+![Village Overview](screenshots/village-overview.jpg)
+*Explore the beautiful low-poly village*
+
+![Clickable Buildings](screenshots/building-interaction.jpg)
+*Click buildings for detailed dashboards*
+
+![Walking NPCs](screenshots/walking-npcs.jpg)
+*6 financial advisors patrol the village*
+
+![Organic Lake](screenshots/organic-lake.jpg)
+*Natural shaped lake with reflections*
+
+## 🚀 Quick Start
 
 ### Prerequisites
 - Node.js 18+ and npm
 - Python 3.10+
-- uv (Python package manager)
+- [uv](https://github.com/astral-sh/uv) (Python package manager)
 
 ### Installation
 
-1. **Clone the repository**
 ```bash
-cd virtualwealth
-```
+# Clone the repository
+git clone https://github.com/alanyoungcy/wealth-village.git
+cd wealth-village
 
-2. **Install Frontend Dependencies**
-```bash
+# Install frontend dependencies
 cd frontend
 npm install
-```
 
-3. **Install Backend Dependencies**
-```bash
-cd backend
+# Install backend dependencies
+cd ../backend
 uv sync
 ```
 
 ### Running the Application
 
-#### Start Backend (Terminal 1)
+**Option 1: Use the startup script**
+```bash
+./start.sh
+```
+
+**Option 2: Manual start**
+
+Terminal 1 - Backend:
 ```bash
 cd backend
 uv run python main.py
 ```
-The API will be available at `http://localhost:8000`
 
-#### Start Frontend (Terminal 2)
+Terminal 2 - Frontend:
 ```bash
 cd frontend
 npm run dev
 ```
-The app will be available at `http://localhost:5173`
 
-## API Endpoints
+### Access
+- **Frontend**: http://localhost:5173
+- **Backend API**: http://localhost:8000
+- **API Docs**: http://localhost:8000/docs
 
-- `GET /` - API information
-- `GET /api/portfolio` - Portfolio performance data
-- `GET /api/research` - Asset research and recommendations
-- `GET /api/risk` - Risk management metrics
-- `GET /api/tax` - Tax management data
-- `GET /api/agents` - Wealth management team agents
-- `GET /api/health` - Health check
+## 🎮 Controls
 
-## 3D Scene Structure
+- **Left Click + Drag**: Rotate camera
+- **Right Click + Drag**: Pan around
+- **Scroll Wheel**: Zoom in/out
+- **Click Buildings**: View detailed dashboards
+- **Season Button**: Toggle summer/autumn (top-right)
 
-The 3D environment consists of:
-- **Central Hub**: Main platform connecting all zones
-- **4 Office Zones**: Each with desk, monitor, chair, filing cabinet, and plants
-- **Walking Avatars**: Animated characters with walking cycles patrolling their zones
-- **Dynamic Lighting**: Ambient, directional, and zone-specific lighting
-- **Interactive Camera**: Orbit controls for exploring the scene
-
-## Project Structure
+## 🏗️ Project Structure
 
 ```
-virtualwealth/
-├── frontend/
+wealth-village/
+├── frontend/                 # React + Three.js
 │   ├── src/
 │   │   ├── components/
 │   │   │   ├── WealthScene.jsx      # Main 3D scene
-│   │   │   ├── WealthAgent.jsx      # Walking avatar component
-│   │   │   ├── OfficeZone.jsx       # Office zone component
-│   │   │   ├── DashboardUI.jsx      # 2D overlay UI
-│   │   │   └── DashboardUI.css      # UI styling
-│   │   ├── App.jsx                  # Main app component
-│   │   └── App.css                  # App styling
-│   ├── package.json
-│   └── vite.config.js
-└── backend/
-    ├── main.py                      # FastAPI application
-    ├── pyproject.toml               # Python dependencies
-    └── uv.lock                      # Lock file
+│   │   │   ├── Villager.jsx         # Walking NPCs
+│   │   │   ├── Animal.jsx           # Animated animals
+│   │   │   ├── Building.jsx         # Clickable buildings
+│   │   │   ├── Water.jsx            # Organic lake
+│   │   │   ├── Tree.jsx             # Seasonal trees
+│   │   │   ├── BuildingDashboard.jsx # Focused view
+│   │   │   └── DashboardUI.jsx      # Main UI overlay
+│   │   └── App.jsx
+│   └── package.json
+├── backend/                  # Python FastAPI
+│   ├── main.py              # API endpoints
+│   └── pyproject.toml
+├── README.md
+└── .gitignore
 ```
 
-## Customization
+## 🎨 Tech Stack
 
-### Adding New Agents
-Edit `WealthScene.jsx` and add a new `<WealthAgent>` component:
-```jsx
-<WealthAgent
-  position={[x, y, z]}
-  color="#hexcolor"
-  name="Agent Name"
-  zone="zone-name"
-/>
-```
+### Frontend
+- **React 18** - UI framework
+- **Vite 8** - Build tool
+- **Three.js** - 3D graphics
+- **@react-three/fiber** - React renderer for Three.js
+- **@react-three/drei** - Useful helpers
+- **@react-three/postprocessing** - Effects (Bloom, SSAO)
 
-### Modifying Data
-Edit the generator functions in `backend/main.py`:
-- `generate_portfolio_data()`
-- `generate_research_data()`
-- `generate_risk_data()`
-- `generate_tax_data()`
+### Backend
+- **Python 3.14** - Runtime
+- **FastAPI 0.142** - Web framework
+- **Uvicorn** - ASGI server
+- **uv** - Package management
 
-### Styling
-- UI styles: `frontend/src/components/DashboardUI.css`
-- App styles: `frontend/src/App.css`
+## 📊 Features Deep Dive
 
-## Future Enhancements
+### Walking NPCs
+Each of the 6 financial team members has:
+- Realistic walking animations (legs, arms, body bobbing)
+- Unique patrol paths around the village
+- Name labels and role badges
+- Colorful business attire
+- Smooth path-following AI
 
-- [ ] Real financial data integration (APIs)
+### Animated Animals
+- **Cows** (4): Black and white spots, walking patterns, detailed features
+- **Sheep** (4): Fluffy wool, grazing behavior
+- **Chickens** (6): Faster movement, pecking animations
+
+### Organic Lake
+- Irregular natural shape (not rectangular!)
+- 32-point bezier curve shoreline
+- Wave animations with vertex displacement
+- 35 rocks along irregular shore
+- 18 lily pads scattered naturally
+- 45 reeds in clusters
+- 3 detailed boats with sails
+- Wooden dock with railings
+
+### Interactive Dashboards
+Click any labeled building to see:
+- **Portfolio**: Asset allocation, performance charts
+- **Research**: Market sentiment, top recommendations
+- **Risk**: Risk scores, VaR metrics, factor analysis
+- **Tax**: Income, deductions, quarterly payments
+
+### Seasonal System
+Toggle between:
+- **Summer**: Bright green trees and grass
+- **Autumn**: Golden, orange, and brown foliage
+
+## 🎯 API Endpoints
+
+- `GET /` - API information
+- `GET /api/portfolio` - Portfolio data
+- `GET /api/research` - Research recommendations
+- `GET /api/risk` - Risk metrics
+- `GET /api/tax` - Tax information
+- `GET /api/agents` - Village team members
+- `GET /api/health` - Health check
+
+## 🔮 Future Enhancements
+
+- [ ] First-person walking mode
+- [ ] Day/night cycle
+- [ ] Weather effects (rain, snow)
+- [ ] More building types
+- [ ] Minimap navigation
+- [ ] Voice interactions
+- [ ] Real financial API integration
 - [ ] User authentication
-- [ ] Historical data visualization
-- [ ] Agent interaction (click to get updates)
-- [ ] Voice interaction with agents
-- [ ] Mobile responsive design
-- [ ] Real-time WebSocket updates
-- [ ] Advanced analytics and predictions
-- [ ] Export reports
-- [ ] Multi-user support
+- [ ] Historical data charts
+- [ ] Mobile responsive
 
-## License
+## 🤝 Contributing
 
-MIT
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-## Credits
+## 📄 License
 
-Built with the 3dviz-pro-max skill for creating immersive 3D visualizations.
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 🙏 Acknowledgments
+
+- Built with the **3dviz-pro-max** workflow principles
+- Low-poly art style inspired by modern isometric village games
+- Financial data models based on industry standards
+
+## 📧 Contact
+
+**Alan Young** - [@alanyoungcy](https://github.com/alanyoungcy)
+
+Project Link: [https://github.com/alanyoungcy/wealth-village](https://github.com/alanyoungcy/wealth-village)
+
+---
+
+⭐ **Star this repo** if you find it interesting!
+
+Built with ❤️ using React Three Fiber and Three.js
+
